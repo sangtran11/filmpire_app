@@ -1,7 +1,7 @@
 import React from "react";
 import { CssBaseline } from "@mui/material";
 import { Route, Routes } from "react-router-dom";
-import { Movies, Actors, MovieInformation, NavBar, Profile } from "./index";
+import { Movies, Actors, MovieInformation, Navbar, Profile } from "./index";
 
 import useStyles from "./styles";
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <NavBar />
+      <Navbar />
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Routes>
