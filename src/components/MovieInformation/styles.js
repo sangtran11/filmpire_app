@@ -10,6 +10,10 @@ export default makeStyles((theme) => ({
       flexWrap: "wrap",
     },
   },
+  wrapPoster: {
+    display: "flex",
+    marginBottom: "30px !important",
+  },
   poster: {
     borderRadius: "20px",
     boxShadow: "0.5em 1em 1em rgb(64, 64, 70)",
