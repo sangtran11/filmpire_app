@@ -15,19 +15,21 @@ import {
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useTheme } from "@mui/styles";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Sidebar, Search } from "..";
 import { fetchToken, createSessionId, moviesApi } from "../../utils";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser, userSelector } from "../../features/auth";
+import { ColorModeContext } from "../../utils/ToggleColorMode";
 import useStyles from "./styles";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const classes = useStyles();
   const isMobile = useMediaQuery("(max-width: 600px)");
+  const classes = useStyles();
   const theme = useTheme();
   const dispatch = useDispatch();
+  const colorMode = useContext(ColorModeContext);
   const { isAuthenticated, user } = useSelector(userSelector);
 
   const token = localStorage.getItem("request_token");
@@ -53,6 +55,7 @@ const Navbar = () => {
     };
     logInUser();
   }, [token]);
+  console.log("colorMode", colorMode);
   return (
     <>
       <AppBar position="fixed">
@@ -68,7 +71,11 @@ const Navbar = () => {
               <Menu />
             </IconButton>
           )}
-          <IconButton color="inherit" sx={{ ml: 1 }} onClick={() => {}}>
+          <IconButton
+            color="inherit"
+            sx={{ ml: 1 }}
+            onClick={colorMode.toggleColorMode}
+          >
             {theme.palette.mode === "dark" ? <Brightness7 /> : <Brightness4 />}
           </IconButton>
           {!isMobile && <Search />}

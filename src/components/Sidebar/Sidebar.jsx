@@ -43,7 +43,7 @@ const Sidebar = ({ setMobileOpen }) => {
         <img
           className={classes.image}
           alt="filmpire"
-          src={theme.palette.mode === "light" ? redLogo : blueLogo}
+          src={theme.palette.mode === "light" ? blueLogo : redLogo}
         />
       </Link>
       <Divider />
@@ -60,7 +60,7 @@ const Sidebar = ({ setMobileOpen }) => {
               <ListItemIcon>
                 <img
                   src={genresIcons[label.toLowerCase()]}
-                  className={classes.genreImages}
+                  className={classes.genreImage}
                   height={30}
                   alt={label}
                 />
@@ -89,7 +89,7 @@ const Sidebar = ({ setMobileOpen }) => {
                 <ListItemIcon>
                   <img
                     src={genresIcons[name.toLowerCase()]}
-                    className={classes.genreImages}
+                    className={classes.genreImage}
                     height={30}
                     alt={name}
                   />
