@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Divider,
   List,
@@ -37,6 +37,7 @@ const Sidebar = ({ setMobileOpen }) => {
     (state) => state.currentGenreOrCategory
   );
   const { data, isFetching } = useGetGenresQuery();
+
   return (
     <>
       <Link to="/" className={classes.imageLink}>

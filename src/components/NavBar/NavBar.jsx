@@ -48,14 +48,12 @@ const Navbar = () => {
           const { data: userData } = await moviesApi.get(
             `/account?session_id=${sessionId}`
           );
-          console.log("data", userData);
           dispatch(setUser(userData));
         }
       }
     };
     logInUser();
   }, [token]);
-  console.log("colorMode", colorMode);
   return (
     <>
       <AppBar position="fixed">
@@ -92,11 +90,11 @@ const Navbar = () => {
                 className={classes.linkButton}
                 onClick={() => {}}
               >
-                {!isMobile && <>My Movies &nbsp;</>}
+                {!isMobile && <>{user?.username} &nbsp;</>}
                 <Avatar
                   style={{ width: 30, height: 30 }}
                   alt="profile"
-                  src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                  src={`https://www.themoviedb.org/t/p/w64_and_h64_face${user?.avatar?.tmdb?.avatar_path}`}
                 />
               </Button>
             )}
